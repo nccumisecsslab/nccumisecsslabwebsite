@@ -1,0 +1,75 @@
+<% layout('layouts/boilerplate')%>
+<div class="container mt-5  md-3  mb-5 ">
+
+    
+        
+    <div class="row pt-3 memberrow">
+        
+        
+        <% for (let year of totaldatas){ %>
+            <div class="shadow card  col-12 memberintro"> 
+                <div class="container pl-3 pt-3">
+                    <h3  class="pl-3"><strong><%=year.grade%>級研究生</strong></h3>
+                    <h4  class="pl-3"><strong>個人資訊</strong></h4>
+                </div>
+            
+            
+            </div>
+            <%  for(let member of year.member){ %>
+                <div class="shadow card col-xl-5 col-l-5 col-md-5 col-s-12 col-xs-12  mb-3 mx-md-4   mt-1" >
+                    <div class="  md-5 row "><!-- 電腦是l~xl-->
+                            <div class="col col-xl-6 col-l-6 col-m-6 col-s-6 col-xs-6  py-5">
+                                <% if(member.photo){ %>
+                                <img src="<%=member.photo%>" class="img-fluid memberPicture" alt="...">
+                                <% }%>
+                                <% if(!member.photo){ %>
+                                <img src="./pic/user.png" class="img-fluid memberPicture" alt="...">
+                                <% }%>
+                            </div>
+                            <div class="col  col-xl-6 col-l-3 col-m-3 col-s-3 col-xs-3 py-5">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong><%=member.name%></strong></h5>
+                                <hr />
+                                <p class="card-text"><strong><%=member.title%></strong></p>
+                                <% if(member.contact){ %>
+                                <p class="card-text"><strong>聯絡方式:</strong></p>
+                                <p class="card-text"><strong><%=member.contact%></strong></p>  
+                                
+                                <% }%>
+                            
+                        
+                                <% if(member.researchlink){ %>
+                                    <hr />
+                                <p class="card-text"><strong>研究成果:</strong></p>
+                                <p class="card-text research"><strong><%=member.research%></strong></p>
+                                <p class="card-text research"><strong><%=member.researchenglish%></strong></p>
+                                <hr />
+                                <p class="card-text"><a href="<%=member.researchlink%>"><strong>論文網址</strong></a></p>
+
+                                <% }%>
+                                <% if(!member.researchlink){ %>
+                                    <hr />
+                                <p class="card-text"><strong>研究方向:<%=member.research%></strong></p>                                
+                                <% }%>
+                            
+                            </div>
+                    </div>
+                    </div>
+                
+                
+            
+                </div>
+
+            <% } %>
+
+        <% } %>
+
+    
+
+    </div>    
+
+
+
+   
+    
+</div>
